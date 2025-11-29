@@ -1,0 +1,40 @@
+2.palindrome
+------------------------------------------------------
+solution:
+
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        if(x<0)
+        {
+            return false;
+        }
+        int n = x;
+        long int revNum = 0;
+        while(n>0)
+        {
+            int temp = n%10;
+            revNum = revNum*10 + temp;
+            n = n/10;
+        }
+        if(revNum==x)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
+    }
+    
+};
+----------------------------------------------------------
+✅ Time Complexity: O(log₁₀ n)
+
+Because the loop runs once for every digit in the number.
+A number with d digits takes d iterations → and d = log₁₀(n).
+
+📦 Space Complexity: O(1)
+
+Only a few integer variables are used, regardless of the input size.
