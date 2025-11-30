@@ -1,0 +1,37 @@
+6.Water Bottle
+------------------------------
+
+solution:
+
+class Solution {
+public:
+    int numWaterBottles(int numBottles, int numExchange) {
+            int ans= numBottles;
+
+            while(numBottles >= numExchange)
+            {
+                int newBottle = numBottles/numExchange;
+                int remBottles = numBottles%numExchange;
+                ans= ans + newBottle;
+                numBottles = remBottles + newBottle;
+            }
+            return ans;   
+    }
+};
+
+----------------------------------------------------------------------
+✔ Time Complexity → O(numBottles / numExchange)
+
+In the worst case, when numExchange = 2, it becomes roughly O(numBottles).
+
+So, final answer:
+
+⏱ Time Complexity → O(n)
+
+(where n = initial number of bottles)
+
+📦 Space Complexity
+
+You only use a few variables (ans, newBottle, remBottles).
+
+✔ Space Complexity → O(1)

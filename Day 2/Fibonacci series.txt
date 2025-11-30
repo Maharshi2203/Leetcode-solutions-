@@ -1,0 +1,55 @@
+4.Fibonacci series
+-------------------------------
+solution:
+
+class Solution {
+public:
+    int fib(int n) {
+        if(n==0)
+        {
+            return 0;
+        }
+        else if(n==1)
+        {
+            return 1;
+        }
+        int firstTerm = 0;
+        int secondTerm = 1;
+
+        for(int i=1;i<=n;i++)
+        {
+            int thirdTerm = firstTerm + secondTerm;
+
+            firstTerm = secondTerm;
+            secondTerm = thirdTerm;
+        
+            
+        }
+        return firstTerm;
+    }   
+    
+};
+
+-------------------------------------------------------------------------------------------
+
+✅ Time Complexity
+
+Your code uses an iterative loop from i = 1 to i = n.
+
+Inside the loop:
+
+Only constant-time operations are performed (addition + assignments).
+
+So the time complexity is:
+
+⏱ Time Complexity → O(n)
+
+Because the loop runs n times.
+
+✅ Space Complexity
+
+You are using only a few integer variables (firstTerm, secondTerm, thirdTerm).
+
+📦 Space Complexity → O(1)
+
+Only constant extra space is used.
