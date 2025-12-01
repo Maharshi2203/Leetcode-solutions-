@@ -1,0 +1,50 @@
+9.Missing Number
+------------------------------------
+solution:
+
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int range = nums.size();
+
+       int actualSum = (range*(range+1))/2;
+
+        int currentSum = 0;
+
+        for(int i=0;i<nums.size();i++)
+        {
+            currentSum= currentSum + nums[i];
+        } 
+
+        int missNo = actualSum - currentSum;
+
+        return missNo; 
+        
+    }
+};
+
+--------------------------------------------------------------------------------------
+
+✅ Time Complexity
+O(n)
+Why?
+
+You loop through the array once:
+
+for(int i = 0; i < nums.size(); i++)
+
+
+This runs n times → O(n).
+
+All other operations are constant time:
+
+range * (range + 1) / 2 → O(1)
+
+subtraction → O(1)
+
+So total time = O(n).
+
+✅ Space Complexity
+O(1)
+
+You use only a few integer variables: range, actualSum, currentSum, missNo.
