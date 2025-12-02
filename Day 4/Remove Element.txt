@@ -1,0 +1,32 @@
+10.Remove Element
+------------------------------------------------
+solution:
+
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        int ptr = 0;
+
+        for(int i=0;i<nums.size();i++)
+        {
+            if(nums[i] != val)
+            {
+                nums[ptr]=nums[i];
+                ptr++;
+            }
+        }
+        return ptr;
+    }
+
+};
+
+-----------------------------------------------------------------------------------------------------
+⏱ Time Complexity
+Time Complexity: O(n)
+
+You iterate through the array once, doing only O(1) work each time.
+
+💾 Space Complexity
+Space Complexity: O(1)
+
+You're modifying the vector in-place and using only a few extra variables.

@@ -1,0 +1,59 @@
+12.Two Sum(ii)
+-------------------------------------------------------
+solution:
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        vector<int> ans(2);
+        int start = 0;
+        int end = numbers.size()-1;
+        while(start < end )
+        {
+            int sum = numbers[start]+ numbers[end];
+
+            if(sum==target)
+            {
+                ans[0] = start+1;
+                ans[1] = end+1;
+                return ans;
+            }
+            else if(sum>target)
+            {
+                end--;
+            }
+            else
+            {
+                start++;
+            }
+        }
+        return ans;
+    }
+};
+
+--------------------------------------------------------------------------------------------------------------------
+✅ Time Complexity
+
+You are using two pointers (start and end) that move across the array only once.
+
+start moves forward
+
+end moves backward
+
+Each element is visited at most once
+
+So the time complexity is:
+
+O(n)
+
+✅ Space Complexity
+
+You only use:
+
+Two integer pointers
+
+A result vector of size 2
+
+So extra space is constant:
+
+O(1)
