@@ -1,0 +1,43 @@
+14.reverse number
+----------------------------------------------
+solution:
+class Solution {
+    public int reverse(int x) {
+        int rev=0;
+        while(x!=0)
+        {
+            int temp = x % 10;
+             x = x/10; 
+             if (rev > Integer.MAX_VALUE/10 || rev < Integer.MIN_VALUE/10) {
+                return 0;
+            }
+            rev = rev*10 + temp;
+        }
+        return rev;
+        
+    }
+}
+----------------------------------------------------------------------------------------------
+✅ Time Complexity
+
+The loop runs once for each digit of the number x.
+
+A 32-bit integer has at most 10 digits, so:
+
+➡️ Time Complexity: O(log₁₀(x)) ≈ O(number of digits)
+
+For a 32-bit integer, this is effectively O(1) (constant time).
+
+✅ Space Complexity
+
+You use only a few integer variables:
+
+rev
+
+temp
+
+updated x
+
+No extra arrays or data structures.
+
+➡️ Space Complexity: O(1)
