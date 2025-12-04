@@ -1,0 +1,64 @@
+17.Find target indices after sorting
+--------------------------------------------------------------------
+solution:
+
+class Solution {
+    public List<Integer> targetIndices(int[] nums, int target) {
+        int num =0;
+        int tcount = 0;
+
+     for(int ele : nums)
+     {
+        if(ele == target)
+        {
+            tcount++;
+        }
+        else if(ele < target)
+        {
+            num++;
+        }
+    }
+    List<Integer> ans = new ArrayList<>();
+    while(tcount > 0)
+    {
+            ans.add(num);
+            num++;
+            tcount--;
+    }        
+    return ans;
+    }
+}
+
+-------------------------------------------------------------------------------------------
+✅ Time Complexity
+
+You loop through the array once:
+
+for(int ele : nums)
+
+
+That’s O(n).
+
+Then the while (tcount > 0) runs only for the number of occurrences of the target, which is at most n, but typically much smaller.
+
+Worst case:
+
+O(n) + O(n) = O(n)
+
+
+So the overall time complexity = O(n).
+
+✅ Space Complexity
+
+You create a new list ans that stores indices of the target.
+
+Worst case – all elements are target → list size = n
+
+Space: O(n)
+
+
+Auxiliary extra variables → O(1).
+
+So final:
+
+O(n) space

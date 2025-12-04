@@ -1,0 +1,57 @@
+16.Binary Search
+---------------------------------------------------
+solution:
+
+class Solution {
+    public int search(int[] nums, int target) {
+        int start = 0;
+        int end = nums.length-1;
+
+        while(start<=end)
+        {
+            int mid = (start+end)/2;
+
+            if(nums[mid]==target)
+            {
+                return mid;
+            }
+            else if(target >  nums[mid])
+            {
+                start = mid+1;
+            }
+            else
+            {
+                end = mid-1;
+            }
+        }
+
+        return -1;
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------
+✅ Time Complexity
+
+You are using two pointers (start and end) that move across the array only once.
+
+start moves forward
+
+end moves backward
+
+Each element is visited at most once
+
+So the time complexity is:
+
+O(n)
+
+✅ Space Complexity
+
+You only use:
+
+Two integer pointers
+
+A result vector of size 2
+
+So extra space is constant:
+
+O(1)
