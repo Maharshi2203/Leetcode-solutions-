@@ -1,0 +1,42 @@
+* Search insert position
+------------------------------------------------------------------
+solution:
+
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+         int left = 0;
+        int right = nums.length - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            if (nums[mid] == target)
+                return mid;
+
+            else if (nums[mid] < target)
+                left = mid + 1;
+
+            else
+                right = mid - 1;
+        }
+
+        return left; 
+        
+    }
+}
+--------------------------------------------------------------------------------
+✅ Time Complexity (TC)
+O(log n)
+
+Because this is a standard binary search.
+Each step halves the search range:
+
+n → n/2 → n/4 → n/8 → ... → 1
+
+
+This reduces in log₂(n) steps.
+
+✅ Space Complexity (SC)
+O(1)
+
+Only a few integer variables (left, right, mid) are used → constant memory.
