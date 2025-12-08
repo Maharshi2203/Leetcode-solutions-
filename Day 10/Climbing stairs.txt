@@ -1,0 +1,31 @@
+* climbing Stairs
+----------------------------------------
+solution:
+
+class Solution {
+    public int climbStairs(int n) {
+        if (n <= 2) return n;
+
+        int a = 1;
+        int b = 2; 
+
+        for (int i = 3; i <= n; i++) {
+            int c = a + b;
+            a = b;
+            b = c;
+        }
+
+        return b;
+    }
+}
+------------------------------------------------------------------------
+✅ Time Complexity (TC)
+O(n)
+
+Because we run a simple loop from 3 to n.
+Each iteration does constant work.
+
+✅ Space Complexity (SC)
+O(1)
+
+Because we only use three variables (a, b, c) — constant space.

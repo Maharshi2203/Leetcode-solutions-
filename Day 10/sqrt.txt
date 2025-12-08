@@ -1,0 +1,35 @@
+*SQRT
+---------------------------------------------------------
+solution:
+
+class Solution {
+    public int mySqrt(int x) {
+        long i = 0;
+
+        while (i * i <= x) {
+            i++;
+        }
+
+        return (int)(i - 1);
+    }
+}
+
+--------------------------------------------------------------------------------------
+
+✅ Time Complexity (TC)
+O(√x)
+
+Why?
+Because the loop runs until i*i > x.
+
+So i goes from:
+
+0, 1, 2, 3, ... , √x
+
+
+Therefore total iterations ≈ √x.
+
+✅ Space Complexity (SC)
+O(1)
+
+Only one variable i is used → constant space.
