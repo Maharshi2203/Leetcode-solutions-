@@ -1,0 +1,47 @@
+13.Roman to integer:
+---------------------------------------------------------------------
+solution:
+
+class Solution {
+    public int romanToInt(String s) {
+
+        int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] symbols = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+
+        int i = 0; 
+        int result = 0;
+
+        for (int idx = 0; idx < symbols.length; idx++) {
+            while (s.startsWith(symbols[idx], i)) {
+                result += values[idx];
+                i += symbols[idx].length();
+            }
+        }
+
+        return result;
+    }
+}
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+✅ Time Complexity
+
+O(n)
+
+symbols.length is constant (13)
+
+startsWith(symbol, i) checks at most 2 characters
+
+Pointer i only moves forward and never exceeds the length of s
+
+Overall, total work is proportional to the length of the string s.
+
+✅ Space Complexity
+
+O(1)
+
+Uses fixed-size arrays
+
+Only constant extra variables (i, result)
+
+No additional data structures

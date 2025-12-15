@@ -1,0 +1,42 @@
+12.Integer to Roman
+-------------------------------------------------------
+solution:
+
+class Solution {
+    public String intToRoman(int num) {
+        int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] symbols = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+
+    StringBuilder sb = new StringBuilder();
+
+    for(int i=0;i< values.length;i++)
+    {
+        while(num>=values[i])
+        {
+            sb.append(symbols[i]);
+            num-=values[i];
+        }
+    }
+        return sb.toString();
+        
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------
+✅ Time Complexity
+
+O(1)
+
+The values and symbols arrays have a fixed size (13 elements)
+
+The number of iterations in the while loop is bounded (Roman numerals max length is constant)
+
+Independent of input size
+
+✅ Space Complexity
+
+O(1)
+
+Uses fixed-size arrays
+
+StringBuilder length is bounded (max Roman numeral length is constant)
