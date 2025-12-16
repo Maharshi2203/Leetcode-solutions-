@@ -1,0 +1,31 @@
+326-power of 3
+----------------------------------------------------------
+ans-
+class Solution {
+    public boolean isPowerOfThree(int n) {
+        if (n <= 0) return false;
+
+        while (n % 3 == 0) {
+            n = n / 3;
+        }
+
+        return n == 1;
+    }
+}
+
+--------------------------------------------------------------------------------------
+✅ Time Complexity
+
+O(log₃ n)
+
+Why?
+
+In each loop, n is divided by 3
+
+Number of divisions until n becomes 1 is:
+
+log₃(n)
+
+✅ Space Complexity
+
+O(1) (constant space)
