@@ -1,0 +1,57 @@
+1046-Last Stone Weight
+----------------------------------------------------------------------------------
+ans-
+class Solution {
+    public int lastStoneWeight(int[] stones) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+        for(int ele: stones)
+        {
+            pq.add(ele);
+        }
+        while(pq.size()>1)
+        {
+            int max = pq.remove();
+            int smax = pq.remove();
+
+            int nstone = max-smax;
+
+            if(nstone!=0)
+            {
+                pq.add(nstone);
+            }
+        }
+        if(pq.size()==0)
+            {
+                return 0;
+            }
+            else
+            {
+                return pq.remove();
+            }
+    }
+}
+------------------------------------------------------------------------------------------------------------------
+
+⏱ Time Complexity
+
+Inserting all stones into max-heap: O(n log n)
+
+Each loop:
+
+2 removals → O(log n)
+
+1 insertion → O(log n)
+
+Loop runs at most n times
+
+𝑂(n log n)
+O(nlogn)
+	​
+
+📦 Space Complexity
+
+PriorityQueue (max-heap) stores up to n elements
+
+𝑂(𝑛)
+O(n)
+	​
