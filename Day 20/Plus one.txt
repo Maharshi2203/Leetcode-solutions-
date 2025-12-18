@@ -1,0 +1,51 @@
+*Plus One
+-----------------------------------------------------------------------
+solution:
+class Solution {
+    public int[] plusOne(int[] digits) {
+        int n = digits.length;
+
+        for (int i = n - 1; i >= 0; i--) {
+            if (digits[i] < 9) {
+                digits[i]++;   
+                return digits;
+            }
+            digits[i] = 0;    
+        }
+        int[] result = new int[n + 1];
+        result[0] = 1;
+        return result;
+    }
+}
+-----------------------------------------------------------------------------------------------------
+⏱️ Time Complexity (TC)
+
+Let n = digits.length
+
+The for loop runs at most n times
+
+In the worst case (when all digits are 9), we traverse the entire array once
+
+Creating the new array also takes O(n), but it doesn’t change the order
+
+✅ Time Complexity:
+
+O(n)
+	​
+
+📦 Space Complexity (SC)
+
+Best case: No new array created → O(1)
+
+Worst case: All digits are 9, so a new array of size n+1 is created → O(n)
+
+✅ Space Complexity:
+
+O(n)
+	​
+
+ (worst case), 
+O(1)
+	​
+
+ (best case)
